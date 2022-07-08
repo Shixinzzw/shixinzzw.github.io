@@ -18,21 +18,25 @@
   
     <meta name="description" content="增量式PID介绍及Python语言实现摘要本文主要记录在电子设计大赛训练时，做电源时需要对电路中某些输出量进行稳定控制，PID控制算法可以很好的实现该功能，其中增量式更符合对电源的电压电流量的控制。本文主要粗略对其进行介绍再使用Python实现一个电压输出稳定控制 1.增量式PID算法介绍以下仅限与对增量式PID控制算法的介绍，对于PID控制算法的概述（General Introduction）见">
 <meta property="og:type" content="article">
-<meta property="og:title" content="增量式PID介绍及Python语言实现">
+<meta property="og:title" content="增量式PID介绍（Python语言实现）">
 <meta property="og:url" content="https://shixinzzw.github.io/2022/07/08/%E5%A2%9E%E9%87%8F%E5%BC%8FPID%E4%BB%8B%E7%BB%8D%E5%8F%8APython%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0/index.html">
 <meta property="og:site_name" content="Shixin&#39;s Blog">
 <meta property="og:description" content="增量式PID介绍及Python语言实现摘要本文主要记录在电子设计大赛训练时，做电源时需要对电路中某些输出量进行稳定控制，PID控制算法可以很好的实现该功能，其中增量式更符合对电源的电压电流量的控制。本文主要粗略对其进行介绍再使用Python实现一个电压输出稳定控制 1.增量式PID算法介绍以下仅限与对增量式PID控制算法的介绍，对于PID控制算法的概述（General Introduction）见">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://shixinzzw.github.io/image/pidzengliang/zengliangpid.png">
+<meta property="og:image" content="https://shixinzzw.github.io/image/pidzengliang/pidout.png">
+<meta property="og:image" content="https://shixinzzw.github.io/image/pidzengliang/pidshuzhijieguo.png">
 <meta property="article:published_time" content="2022-07-08T07:01:57.000Z">
-<meta property="article:modified_time" content="2022-07-08T09:04:57.448Z">
+<meta property="article:modified_time" content="2022-07-08T15:33:05.752Z">
 <meta property="article:author" content="Shixin">
 <meta property="article:tag" content="Control">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="PID">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://shixinzzw.github.io/image/pidzengliang/zengliangpid.png">
   
   
-  <title>增量式PID介绍及Python语言实现 - Shixin&#39;s Blog</title>
+  <title>增量式PID介绍（Python语言实现） - Shixin&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -75,7 +79,7 @@
   <script  src="/js/color-schema.js" ></script>
 
   
-<meta name="generator" content="Hexo 6.1.0"></head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 
 
 <body>
@@ -189,7 +193,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="增量式PID介绍及Python语言实现"></span>
+            <span id="subtitle" data-typed-text="增量式PID介绍（Python语言实现）"></span>
           
         </div>
 
@@ -212,7 +216,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          580 字
+          1.3k 字
         
       </span>
     
@@ -223,7 +227,7 @@
         
         
         
-          5 分钟
+          12 分钟
         
       </span>
     
@@ -261,22 +265,24 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">增量式PID介绍及Python语言实现</h1>
+            <h1 style="display: none">增量式PID介绍（Python语言实现）</h1>
             
             <div class="markdown-body">
               
               <h2 id="增量式PID介绍及Python语言实现"><a href="#增量式PID介绍及Python语言实现" class="headerlink" title="增量式PID介绍及Python语言实现"></a>增量式PID介绍及Python语言实现</h2><h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>本文主要记录在电子设计大赛训练时，做电源时需要对电路中某些输出量进行稳定控制，PID控制算法可以很好的实现该功能，其中增量式更符合对电源的电压电流量的控制。本文主要粗略对其进行介绍再使用Python实现一个电压输出稳定控制</p>
 <h3 id="1-增量式PID算法介绍"><a href="#1-增量式PID算法介绍" class="headerlink" title="1.增量式PID算法介绍"></a>1.增量式PID算法介绍</h3><p>以下仅限与对增量式PID控制算法的介绍，对于PID控制算法的概述（General Introduction）见“PID控制器入门概要”</p>
 <p>增量式PID控制将当前时刻的控制量和上一时刻的控制量做差，以差值为新的控制量，是一种递推式的算法。</p>
-<p>其公式表示为：<br>$$<br>\Delta u(k) &#x3D; K_p (e(k) - e(k-)) + K_i e(k) + K_d(e(k) - 2e(k-2) + e(k-2)) \tag{1}<br>$$<br>其中:</p>
+<p>其公式表示为：<br>$$<br>\Delta u(k) &#x3D; K_p (e(k) - e(k-1)) + K_i e(k) + K_d(e(k) - 2e(k-1) + e(k-2)) \tag{1}<br>$$<br>其中:</p>
 <ul>
 <li>$K_p$为比例系数</li>
 <li>$K_i$为积分系数</li>
 <li>$K_d$为微分系数</li>
 </ul>
-<p>因此若要使用增量式PID算法需要保存$e(k-1),e(k-2)$两个时刻的输出值，在加上回馈值$e(k)$的积分</p>
+<p>因此若要使用增量式PID算法需要保存$e(k-1),e(k-2)$两个时刻的输出值，在加上输出回馈值$e(k)$的积分<br>注意：增量式PID的运算结果为$u(k)$同$u(k-1)$之间的差值，因此输出结果需叠加，即为：<br>$$<br>u(k) &#x3D; u(k-1) + \Delta(k)<br>$$<br><img src="/image/pidzengliang/zengliangpid.png" srcset="/img/loading.gif" lazyload alt="增量PID流程框图"><br>厘清$u(k),u(k-1),\Delta u,e(k),e(k-1),e(k-2)$</p>
 <h3 id="2-使用Python语言进行实现"><a href="#2-使用Python语言进行实现" class="headerlink" title="2.使用Python语言进行实现"></a>2.使用Python语言进行实现</h3><p>下面使用Python语言进行展示，得到输出曲线<br>假设如下案例，现有一DCDC升压（BOOST）电路，需要将15V的初始电压提升到30V，控制方式为驱动MOS管周期内导通与关断时间比值即可。但现在只关注电压输入与控制后输出的结果，不考虑PWM占空比，定时器计数等问题。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Python"><br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-comment"># 名称：PID算法（增量式）</span><br><span class="hljs-comment"># 作者：曾志文</span><br><span class="hljs-comment"># 更新时间：2022.07.08 21.55</span><br><span class="hljs-comment"># 版本: 1.0</span><br><span class="hljs-keyword">import</span> numpy<br><span class="hljs-keyword">import</span> pandas<br><span class="hljs-keyword">import</span> matplotlib.pyplot<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">main</span>():<br>    Setpoint = <span class="hljs-number">30.0</span><br>    out = <span class="hljs-number">0.0</span><br>    k_p = <span class="hljs-number">0.05</span><br>    k_i = <span class="hljs-number">0.2</span><br>    k_d = <span class="hljs-number">0.1</span><br>    e_k1 = <span class="hljs-number">0.0</span><br>    e_k2 = <span class="hljs-number">0.0</span><br>    time = <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-number">50</span>, <span class="hljs-number">1</span>)<br>    output = numpy.arange(<span class="hljs-number">1.0</span>, <span class="hljs-number">51.0</span>, <span class="hljs-number">1.0</span>)<br><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> time:<br>        e_k = Setpoint - out<br>        outk = k_p * (e_k - e_k1) + k_i * e_k + k_d * (e_k - <span class="hljs-number">2</span> * e_k1 + e_k2)<br>        e_k2 = e_k1<br>        e_k1 = e_k<br>        out = out + outk<br>        <span class="hljs-built_in">print</span>(out)<br>        output[i] = out<br><br>    matplotlib.pyplot.plot(<span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-number">51</span>, <span class="hljs-number">1</span>), output)<br>    matplotlib.pyplot.show()<br><br>    <span class="hljs-built_in">print</span>(output)<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    main()<br><br></code></pre></td></tr></table></figure>
+
+<p>通过不断改变$K_p,K_i,K_d$三个值最终可以得到一个十分合适的输出曲线：<br><img src="/image/pidzengliang/pidout.png" srcset="/img/loading.gif" lazyload alt="PID输出曲线"><br>观察该曲线可以发现系统可以很达到了稳定状态，且到达稳定点的时间也很快<br>观察如下数值结果：<br><img src="/image/pidzengliang/pidshuzhijieguo.png" srcset="/img/loading.gif" lazyload alt="PID输出数值结果"><br>可以看到在数值上达到预期值的效果也十分理想，误差小于0.001</p>
 
               
             </div>
@@ -297,12 +303,15 @@
   <a href="/categories/Control/" class="category-chain-item">Control</a>
   
   
-    <span>></span>
-    
-  <a href="/categories/Control/Python/" class="category-chain-item">Python</a>
-  
-  
 
+      </span>
+    
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Python/" class="category-chain-item">Python</a>
+  
   
 
       </span>
@@ -332,7 +341,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>增量式PID介绍及Python语言实现</div>
+      <div>增量式PID介绍（Python语言实现）</div>
       <div>https://shixinzzw.github.io/2022/07/08/增量式PID介绍及Python语言实现/</div>
     </div>
     <div class="license-meta">
