@@ -1,8 +1,11 @@
 ---
 title: PID控制器入门概要
 date: 2022-04-03 19:16:30
-categories: Automation
-tags: Automation
+categories: 
+- [Control]
+tags: 
+- Control
+- PID
 ---
 
 ## PID 控制器入门概要
