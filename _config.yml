@@ -75,6 +75,21 @@ tag_map:
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
 meta_generator: true
 
+
+# Math
+math:
+  katex:
+    css: 'https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css'
+    options:
+      throwOnError: false
+  mathjax:
+    css: 'https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css'
+    options:
+      conversion:
+        display: false
+      tex:
+      svg:
+
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
 ## You can customize the date format as defined in
