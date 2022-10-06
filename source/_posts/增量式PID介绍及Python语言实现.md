@@ -9,10 +9,6 @@ tags:
 - Python
 - PID
 # banner_img: /image/pidzengliang/titu.jpg
-post:
-  comments:
-    enable: true
-    type: Valine
 --- 
 
 ## 增量式PID介绍及Python语言实现
