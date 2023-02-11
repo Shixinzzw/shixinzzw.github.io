@@ -75,6 +75,16 @@ tag_map:
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
 meta_generator: true
 
+# RSS
+feed:
+    type: atom
+    path: atom.xml
+    limit: 0
+    hub:
+    content:
+    content_limit:
+    content_limit_delim: ' '
+
 
 # Math
 # math:
