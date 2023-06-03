@@ -8,7 +8,7 @@
     <link href="/2023/06/03/FOC%E6%8E%A7%E5%88%B6%E5%99%A8%E8%AE%BE%E8%AE%A1/"/>
     <url>/2023/06/03/FOC%E6%8E%A7%E5%88%B6%E5%99%A8%E8%AE%BE%E8%AE%A1/</url>
     
-    <content type="html"><![CDATA[<h2 id="FOC三相交流异步电动机控制与三相逆变电路"><a href="#FOC三相交流异步电动机控制与三相逆变电路" class="headerlink" title="FOC三相交流异步电动机控制与三相逆变电路"></a>FOC三相交流异步电动机控制与三相逆变电路</h2><h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>本文主要记录了在完成单片机课设时所选择的三相异步电动机的FOC控制器设计以及相关电力电子电路的设计，同时希望该课设能帮助了解三相逆变器有关知识，为之后的电子设计竞赛提供指导。</p><span id="more"></span>]]></content>
+    <content type="html"><![CDATA[<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>本文主要记录了在完成单片机课设时所选择的三相异步电动机的FOC控制器设计以及相关电力电子电路的设计，同时希望该课设能帮助了解三相逆变器有关知识，为之后的电子设计竞赛提供指导。</p><span id="more"></span><h2 id="1-FOC系统介绍"><a href="#1-FOC系统介绍" class="headerlink" title="1. FOC系统介绍"></a>1. FOC系统介绍</h2><h2 id="2-Simulink仿真"><a href="#2-Simulink仿真" class="headerlink" title="2. Simulink仿真"></a>2. Simulink仿真</h2><h2 id="3-FOC三相逆变器设计"><a href="#3-FOC三相逆变器设计" class="headerlink" title="3. FOC三相逆变器设计"></a>3. FOC三相逆变器设计</h2><h2 id="4-其他"><a href="#4-其他" class="headerlink" title="4. 其他"></a>4. 其他</h2>]]></content>
     
     
     <categories>
