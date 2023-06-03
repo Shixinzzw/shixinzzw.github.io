@@ -16,15 +16,15 @@
   <meta name="author" content="Shixin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="C语言程序中变量的作用域问题在使用C语言编写程序时，根据不同程序的要求，有时对于程序内部的数据传递，数据处理，数据使用等问题上会有很多要求。例如，在程序模块化设计时，各个模块尽量需要可以封装起来，方便使用，同时函数内部的数据会有两种不同的需求。第一种则是尽量希望模块内部的数据不被访问，只传递输出结果即可，或者是希望每次函数被调用后，能够释放掉内部使用的内存空间。第二种情况就是函数内部的数据不被释放">
+    <meta name="description" content="摘要在使用C语言编写程序时，根据不同程序的要求，有时对于程序内部的数据传递，数据处理，数据使用等问题上会有很多要求。例如，在程序模块化设计时，各个模块尽量需要可以封装起来，方便使用，同时函数内部的数据会有两种不同的需求。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C语言程序中变量的作用域问题">
 <meta property="og:url" content="https://shixinzzw.github.io/2022/07/14/%E4%B8%80%E4%BA%9B%E5%85%B3%E4%BA%8EC%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E4%B8%AD%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Shixin&#39;s Blog">
-<meta property="og:description" content="C语言程序中变量的作用域问题在使用C语言编写程序时，根据不同程序的要求，有时对于程序内部的数据传递，数据处理，数据使用等问题上会有很多要求。例如，在程序模块化设计时，各个模块尽量需要可以封装起来，方便使用，同时函数内部的数据会有两种不同的需求。第一种则是尽量希望模块内部的数据不被访问，只传递输出结果即可，或者是希望每次函数被调用后，能够释放掉内部使用的内存空间。第二种情况就是函数内部的数据不被释放">
+<meta property="og:description" content="摘要在使用C语言编写程序时，根据不同程序的要求，有时对于程序内部的数据传递，数据处理，数据使用等问题上会有很多要求。例如，在程序模块化设计时，各个模块尽量需要可以封装起来，方便使用，同时函数内部的数据会有两种不同的需求。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-07-14T13:28:04.000Z">
-<meta property="article:modified_time" content="2023-04-03T12:15:19.809Z">
+<meta property="article:modified_time" content="2023-06-03T09:23:45.666Z">
 <meta property="article:author" content="Shixin">
 <meta property="article:tag" content="C">
 <meta property="article:tag" content="Coding">
@@ -221,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          316 字
+          302 字
         
       </span>
     
@@ -275,8 +275,11 @@
             
               <div class="markdown-body">
                 
-                <h2 id="C语言程序中变量的作用域问题"><a href="#C语言程序中变量的作用域问题" class="headerlink" title="C语言程序中变量的作用域问题"></a>C语言程序中变量的作用域问题</h2><p>在使用C语言编写程序时，根据不同程序的要求，有时对于程序内部的数据传递，数据处理，数据使用等问题上会有很多要求。例如，在程序模块化设计时，各个模块尽量需要可以封装起来，方便使用，同时函数内部的数据会有两种不同的需求。<br>第一种则是尽量希望模块内部的数据不被访问，只传递输出结果即可，或者是希望每次函数被调用后，能够释放掉内部使用的内存空间。<br>第二种情况就是函数内部的数据不被释放，能够在调用后存留下来，在循环或者重复调用时其中的数据能给予上次调用的基础上继续更改，甚至希望可以调用其内部的数据。<br>对于上述的两个问题或者说是要求，就需要了解C语言程序中变量的作用域的问题。本文将通过诸多例程来厘清这其中的关系。</p>
-<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3>
+                <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>在使用C语言编写程序时，根据不同程序的要求，有时对于程序内部的数据传递，数据处理，数据使用等问题上会有很多要求。例如，在程序模块化设计时，各个模块尽量需要可以封装起来，方便使用，同时函数内部的数据会有两种不同的需求。</p>
+<span id="more"></span>
+
+<p>第一种则是尽量希望模块内部的数据不被访问，只传递输出结果即可，或者是希望每次函数被调用后，能够释放掉内部使用的内存空间。<br>第二种情况就是函数内部的数据不被释放，能够在调用后存留下来，在循环或者重复调用时其中的数据能给予上次调用的基础上继续更改，甚至希望可以调用其内部的数据。<br>对于上述的两个问题或者说是要求，就需要了解C语言程序中变量的作用域的问题。本文将通过诸多例程来厘清这其中的关系。</p>
+
                 
               </div>
             

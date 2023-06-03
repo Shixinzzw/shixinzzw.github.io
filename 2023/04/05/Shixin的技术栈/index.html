@@ -16,28 +16,21 @@
   <meta name="author" content="Shixin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="摘要本文主要记录在电子设计大赛训练时，做电源时需要对电路中某些输出量进行稳定控制，PID控制算法可以很好的实现该功能，其中增量式更符合对电源的电压电流量的控制。本文主要粗略对其进行介绍再使用Python实现一个电压输出稳定控制">
+    <meta name="description" content="本文主要总结了一下我个人觉得需要掌握的一些技术能力。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="增量式PID介绍（Python语言实现）">
-<meta property="og:url" content="https://shixinzzw.github.io/2022/07/08/%E5%A2%9E%E9%87%8F%E5%BC%8FPID%E4%BB%8B%E7%BB%8D%E5%8F%8APython%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0/index.html">
+<meta property="og:title" content="Shixin的技术栈">
+<meta property="og:url" content="https://shixinzzw.github.io/2023/04/05/Shixin%E7%9A%84%E6%8A%80%E6%9C%AF%E6%A0%88/index.html">
 <meta property="og:site_name" content="Shixin&#39;s Blog">
-<meta property="og:description" content="摘要本文主要记录在电子设计大赛训练时，做电源时需要对电路中某些输出量进行稳定控制，PID控制算法可以很好的实现该功能，其中增量式更符合对电源的电压电流量的控制。本文主要粗略对其进行介绍再使用Python实现一个电压输出稳定控制">
+<meta property="og:description" content="本文主要总结了一下我个人觉得需要掌握的一些技术能力。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://shixinzzw.github.io/image/pidzengliang/zengliangpid.png">
-<meta property="og:image" content="https://shixinzzw.github.io/image/pidzengliang/pidout.png">
-<meta property="og:image" content="https://shixinzzw.github.io/image/pidzengliang/pidshuzhijieguo.png">
-<meta property="article:published_time" content="2022-07-08T07:01:57.000Z">
-<meta property="article:modified_time" content="2023-06-03T09:22:54.841Z">
+<meta property="article:published_time" content="2023-04-05T15:30:12.000Z">
+<meta property="article:modified_time" content="2023-06-03T09:27:27.057Z">
 <meta property="article:author" content="Shixin">
-<meta property="article:tag" content="Control">
-<meta property="article:tag" content="Python">
-<meta property="article:tag" content="PID">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://shixinzzw.github.io/image/pidzengliang/zengliangpid.png">
   
   
   
-  <title>增量式PID介绍（Python语言实现） - Shixin&#39;s Blog</title>
+  <title>Shixin的技术栈 - Shixin&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -203,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="增量式PID介绍（Python语言实现）"></span>
+            <span id="subtitle" data-typed-text="Shixin的技术栈"></span>
           
         </div>
 
@@ -214,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-07-08 15:01" pubdate>
-          2022年7月8日 下午
+        <time datetime="2023-04-05 23:30" pubdate>
+          2023年4月5日 晚上
         </time>
       </span>
     
@@ -226,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.2k 字
+          289 字
         
       </span>
     
@@ -237,7 +230,7 @@
         
         
         
-          19 分钟
+          3 分钟
         
       </span>
     
@@ -275,36 +268,14 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">增量式PID介绍（Python语言实现）</h1>
+            <h1 style="display: none">Shixin的技术栈</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>本文主要记录在电子设计大赛训练时，做电源时需要对电路中某些输出量进行稳定控制，PID控制算法可以很好的实现该功能，其中增量式更符合对电源的电压电流量的控制。本文主要粗略对其进行介绍再使用Python实现一个电压输出稳定控制</p>
+                <p>本文主要总结了一下我个人觉得需要掌握的一些技术能力。</p>
 <span id="more"></span>
-<h2 id="1-增量式PID算法介绍"><a href="#1-增量式PID算法介绍" class="headerlink" title="1.增量式PID算法介绍"></a>1.增量式PID算法介绍</h2><p>以下仅限与对增量式PID控制算法的介绍，对于PID控制算法的概述（General Introduction）见“PID控制器入门概要”</p>
-<p>增量式PID控制将当前时刻的控制量和上一时刻的控制量做差，以差值为新的控制量，是一种递推式的算法。</p>
-<p>其公式表示为：<br>$$<br>\Delta u(k) &#x3D; K_p (e(k) - e(k-1)) + K_i e(k) + K_d(e(k) - 2e(k-1) + e(k-2)) \tag{1}<br>$$<br>其中:</p>
-<ul>
-<li>$K_p$为比例系数</li>
-<li>$K_i$为积分系数</li>
-<li>$K_d$为微分系数</li>
-</ul>
-<p>因此若要使用增量式PID算法需要保存$e(k-1),e(k-2)$两个时刻的输出值，在加上输出回馈值$e(k)$的积分<br>注意：增量式PID的运算结果为$u(k)$同$u(k-1)$之间的差值，因此输出结果需叠加，即为：<br>$$<br>u(k) &#x3D; u(k-1) + \Delta(k)<br>$$<br><img src="/image/pidzengliang/zengliangpid.png" srcset="/img/loading.gif" lazyload alt="增量PID流程框图"><br>厘清$u(k),u(k-1),\Delta u,e(k),e(k-1),e(k-2)$</p>
-<h2 id="2-使用Python语言进行实现"><a href="#2-使用Python语言进行实现" class="headerlink" title="2.使用Python语言进行实现"></a>2.使用Python语言进行实现</h2><p>下面使用Python语言进行展示，得到输出曲线<br>假设如下案例，现有一DCDC升压（BOOST）电路，需要将15V的初始电压提升到30V，控制方式为驱动MOS管周期内导通与关断时间比值即可。但现在只关注电压输入与控制后输出的结果，不考虑PWM占空比，定时器计数等问题。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-comment"># 名称：PID算法（增量式）</span><br><span class="hljs-comment"># 作者：Shixin</span><br><span class="hljs-comment"># 更新时间：2022.07.08 21.55</span><br><span class="hljs-comment"># 版本: 1.0</span><br><span class="hljs-keyword">import</span> numpy<br><span class="hljs-keyword">import</span> pandas<br><span class="hljs-keyword">import</span> matplotlib.pyplot<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">main</span>():<br>    Setpoint = <span class="hljs-number">30.0</span><br>    out = <span class="hljs-number">0.0</span><br>    k_p = <span class="hljs-number">0.05</span><br>    k_i = <span class="hljs-number">0.2</span><br>    k_d = <span class="hljs-number">0.1</span><br>    e_k1 = <span class="hljs-number">0.0</span><br>    e_k2 = <span class="hljs-number">0.0</span><br>    time = <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-number">50</span>, <span class="hljs-number">1</span>)<br>    output = numpy.arange(<span class="hljs-number">1.0</span>, <span class="hljs-number">51.0</span>, <span class="hljs-number">1.0</span>)<br><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> time:<br>        e_k = Setpoint - out<br>        outk = k_p * (e_k - e_k1) + k_i * e_k + k_d * (e_k - <span class="hljs-number">2</span> * e_k1 + e_k2)<br>        e_k2 = e_k1<br>        e_k1 = e_k<br>        out = out + outk<br>        <span class="hljs-built_in">print</span>(out)<br>        output[i] = out<br><br>    matplotlib.pyplot.plot(<span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-number">51</span>, <span class="hljs-number">1</span>), output)<br>    matplotlib.pyplot.show()<br><br>    <span class="hljs-built_in">print</span>(output)<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    main()<br><br></code></pre></td></tr></table></figure>
-
-<p>通过不断改变$K_p,K_i,K_d$三个值最终可以得到一个十分合适的输出曲线：<br><img src="/image/pidzengliang/pidout.png" srcset="/img/loading.gif" lazyload alt="PID输出曲线"><br>观察该曲线可以发现系统可以很达到了稳定状态，且到达稳定点的时间也很快<br>观察如下数值结果：<br><img src="/image/pidzengliang/pidshuzhijieguo.png" srcset="/img/loading.gif" lazyload alt="PID输出数值结果"><br>可以看到在数值上达到预期值的效果也十分理想，误差小于0.001</p>
-<h2 id="3-其他的一些问题"><a href="#3-其他的一些问题" class="headerlink" title="3.其他的一些问题"></a>3.其他的一些问题</h2><p>当我在做DC-DC电源转换器直流稳压源时，发现由于系统反应过于迅速以至于转换器来不及反应导致系统无法达到预期目的，因此需要将参数调小并留有一定的系统反应时间。</p>
-<h2 id="4-近一年后"><a href="#4-近一年后" class="headerlink" title="4.近一年后"></a>4.近一年后</h2><p>在使用过程中我又对上述的PID计算代码进行了进一步封装，使用的时候可以向PID计算过程直接传递 Kp, Ki, Kd 参数，使用起来更为方便，且封装后的代码可以针对不同的过程使用，不必考虑其他问题，诸如：</p>
-<ul>
-<li>变量的存储空间是否会相互影响</li>
-<li>是否要考虑计算的内容是否为有特定单位的有意义的物理量</li>
-<li>计算时的变量是否可见可读</li>
-</ul>
-<p>代码封装之后，所有的PID计算全部进行了归一化，输出结果的范围为 $[-1,1]$ ,使用时需要自行缩放到需要的有物理意义的结果。这样作的好处之一就是，Matlab仿真的结构可以直接使用这个代码进行处理（Simulink仿真的PID计算输出均为归一化的结果）。</p>
-<p>封装后的函数原型如下：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-comment">/**   </span><br><span class="hljs-comment">  * @brief  PID Calculator, You can define different Parameter when use it.   </span><br><span class="hljs-comment">  * @param  Now_out: Sensor Data OR Output right now that you want   </span><br><span class="hljs-comment">  *                  to INPUT the PID calculation.   </span><br><span class="hljs-comment">  * @param  Target: Your wanted Target   </span><br><span class="hljs-comment">  * @param  Parameter:  The Kp, Ki, Kd Parameter that you want use.   </span><br><span class="hljs-comment">  * @param  UpperLimit: Limit the upper side of the PID calculation final output   </span><br><span class="hljs-comment">  * @param  LowerLimit: Limit the lower side of the PID calculation final output   </span><br><span class="hljs-comment">  * @retval None   </span><br><span class="hljs-comment">  */</span><br><br><span class="hljs-type">float</span> <span class="hljs-title function_">pidCalc</span><br> <span class="hljs-params">(<span class="hljs-type">float</span> Now_out, <span class="hljs-type">float</span> Target, <span class="hljs-keyword">struct</span> strPID Parameter ,<span class="hljs-type">float</span> UpperLimit ,<span class="hljs-type">float</span> LowerLimit)</span>;<br></code></pre></td></tr></table></figure>
+<h2 id="Shixin的技术栈"><a href="#Shixin的技术栈" class="headerlink" title="Shixin的技术栈"></a>Shixin的技术栈</h2><p>Linux嵌入式+边缘（神经网络，计算机视觉）计算［有前景］<br>STM32嵌入式开发 （STM32CubeMX，HAL库）<br>国产嵌入式芯片开发<br>C语言，C++，CMake，JSON，Lua<br>Git项目管理<br>自动控制原理，现代控制原理 算法各类学习<br>MATLAB&#x2F;SIMULINK 电力电子技术，PFC，逆变器…及其仿真<br>PPL，SOGI，等电源控制技术<br>Linux系统，ROS机器人系统<br>机器学习，Python OpenCV，C++计算机视觉<br>GTK，QT界面开发<br>PCB电路板设计（KiCAD）<br>基础的机械设计（FreeCAD）</p>
 
                 
               </div>
@@ -313,58 +284,6 @@
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Control/" class="category-chain-item">Control</a>
-  
-  
-
-      </span>
-    
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/C-C/" class="category-chain-item">C\C++</a>
-  
-  
-
-      </span>
-    
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Python/" class="category-chain-item">Python</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/Control/">#Control</a>
-      
-        <a href="/tags/Python/">#Python</a>
-      
-        <a href="/tags/PID/">#PID</a>
-      
-    </div>
   
 </div>
 
@@ -374,8 +293,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>增量式PID介绍（Python语言实现）</div>
-      <div>https://shixinzzw.github.io/2022/07/08/增量式PID介绍及Python语言实现/</div>
+      <div>Shixin的技术栈</div>
+      <div>https://shixinzzw.github.io/2023/04/05/Shixin的技术栈/</div>
     </div>
     <div class="license-meta">
       
@@ -387,7 +306,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年7月8日</div>
+          <div>2023年4月5日</div>
         </div>
       
       
@@ -419,15 +338,21 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/07/14/%E4%B8%80%E4%BA%9B%E5%85%B3%E4%BA%8EC%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E4%B8%AD%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%97%AE%E9%A2%98/" title="C语言程序中变量的作用域问题">
+                      <a href="/2023/04/22/%E4%BD%BF%E7%94%A8Ubuntu-Server-20-04%E9%85%8D%E7%BD%AE%E6%A0%91%E8%8E%93%E6%B4%BE3B-ROS1-%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E6%80%BB%E7%BB%93/" title="使用Ubuntu Server 20.04配置树莓派3B ROS1 系统环境总结">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">C语言程序中变量的作用域问题</span>
+                        <span class="hidden-mobile">使用Ubuntu Server 20.04配置树莓派3B ROS1 系统环境总结</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2023/02/26/%E8%85%BE%E8%AE%AF%E4%BA%91loT%E5%BC%80%E5%8F%91%EF%BC%88ESP-12F%EF%BC%89/" title="腾讯云loT开发（ESP-12F）">
+                        <span class="hidden-mobile">腾讯云loT开发（ESP-12F）</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
@@ -447,7 +372,7 @@
         var options = Object.assign(
           {"clientID":"e4c1b8fa1861450ec6ae","clientSecret":"63b56067410a57fbdc001c4d743a0d93a56cf2fa","repo":"https://github.com/Shixinzzw/comments.shixinzzw.github.io","owner":"Shixinzzw","admin":"Shixinzzw","language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
           {
-            id: '536316e538e866d12098a4d40b3b7e62'
+            id: '17b719b0a46127aca879c501ea36cd4a'
           }
         )
         var gitalk = new Gitalk(options);
