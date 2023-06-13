@@ -16,12 +16,12 @@
   <meta name="author" content="Shixin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="摘要 1 注释 2 变量 3 接口（函数） 4 常量">
+    <meta name="description" content="摘要  1   注释  2   变量  3   接口（函数）  4   常量">
 <meta property="og:type" content="article">
 <meta property="og:title" content="程序风格与规范">
 <meta property="og:url" content="https://shixinzzw.github.io/2022/10/29/%E7%A8%8B%E5%BA%8F%E9%A3%8E%E6%A0%BC%E4%B8%8E%E8%A7%84%E8%8C%83/index.html">
 <meta property="og:site_name" content="Shixin&#39;s Blog">
-<meta property="og:description" content="摘要 1 注释 2 变量 3 接口（函数） 4 常量">
+<meta property="og:description" content="摘要  1   注释  2   变量  3   接口（函数）  4   常量">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-29T12:22:52.000Z">
 <meta property="article:modified_time" content="2023-06-03T09:24:17.519Z">
@@ -41,6 +41,8 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.2/katex.min.css" />
 
 
 
@@ -82,7 +84,7 @@
 
   
 <!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
@@ -277,11 +279,11 @@
             
               <div class="markdown-body">
                 
-                <h2 id="摘要">摘要</h2>
-<h2 id="注释">1 注释</h2>
-<h2 id="变量">2 变量</h2>
-<h2 id="接口函数">3 接口（函数）</h2>
-<h2 id="常量">4 常量</h2>
+                <h2 id="摘要"><a class="markdownIt-Anchor" href="#摘要"></a> 摘要</h2>
+<h2 id="1-注释"><a class="markdownIt-Anchor" href="#1-注释"></a> 1   注释</h2>
+<h2 id="2-变量"><a class="markdownIt-Anchor" href="#2-变量"></a> 2   变量</h2>
+<h2 id="3-接口函数"><a class="markdownIt-Anchor" href="#3-接口函数"></a> 3   接口（函数）</h2>
+<h2 id="4-常量"><a class="markdownIt-Anchor" href="#4-常量"></a> 4   常量</h2>
 
                 
               </div>
@@ -376,7 +378,7 @@
       Fluid.utils.createCssLink('/css/gitalk.css')
       Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.7.2/gitalk.min.js', function() {
         var options = Object.assign(
-          {"clientID":"e4c1b8fa1861450ec6ae","clientSecret":"63b56067410a57fbdc001c4d743a0d93a56cf2fa","repo":"https://github.com/Shixinzzw/comments.shixinzzw.github.io","owner":"Shixinzzw","admin":"Shixinzzw","language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {"clientID":"e4c1b8fa1861450ec6ae","clientSecret":"63b56067410a57fbdc001c4d743a0d93a56cf2fa","repo":"shixinzzw.github.io","owner":"Shixinzzw","admin":"Shixinzzw","language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
           {
             id: '7cc5511cb9343171946e600e293590b7'
           }
@@ -443,7 +445,6 @@
 
   
   
-
 
 
 
@@ -651,49 +652,6 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
-
-  
-      <script>
-        if (!window.MathJax) {
-          window.MathJax = {
-            tex    : {
-              inlineMath: { '[+]': [['$', '$']] }
-            },
-            loader : {
-              load: ['ui/lazy']
-            },
-            options: {
-              renderActions: {
-                insertedScript: [200, () => {
-                  document.querySelectorAll('mjx-container').forEach(node => {
-                    let target = node.parentNode;
-                    if (target.nodeName.toLowerCase() === 'li') {
-                      target.parentNode.classList.add('has-jax');
-                    }
-                  });
-                }, '', false]
-              }
-            }
-          };
-        } else {
-          MathJax.startup.document.state(0);
-          MathJax.texReset();
-          MathJax.typeset();
-          MathJax.typesetPromise();
-        }
-
-        Fluid.events.registerRefreshCallback(function() {
-          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
-            MathJax.startup.document.state(0);
-            MathJax.texReset();
-            MathJax.typeset();
-            MathJax.typesetPromise();
-          }
-        });
-      </script>
-    
-
-  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

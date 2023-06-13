@@ -42,6 +42,8 @@
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.2/katex.min.css" />
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -82,7 +84,7 @@
 
   
 <!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
@@ -223,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          288 字
+          284 字
         
       </span>
     
@@ -277,14 +279,21 @@
             
               <div class="markdown-body">
                 
-                <p>本文主要总结了一下我个人觉得需要掌握的一些技术能力。 <span id="more"></span> ##
-Shixin的技术栈</p>
-<p>Linux嵌入式+边缘（神经网络，计算机视觉）计算［有前景］
-STM32嵌入式开发 （STM32CubeMX，HAL库） 国产嵌入式芯片开发
-C语言，C++，CMake，JSON，Lua Git项目管理 自动控制原理，现代控制原理
-算法各类学习 MATLAB/SIMULINK 电力电子技术，PFC，逆变器...及其仿真
-PPL，SOGI，等电源控制技术 Linux系统，ROS机器人系统 机器学习，Python
-OpenCV，C++计算机视觉 GTK，QT界面开发 PCB电路板设计（KiCAD）
+                <p>本文主要总结了一下我个人觉得需要掌握的一些技术能力。</p>
+<span id="more"></span>
+<h2 id="shixin的技术栈"><a class="markdownIt-Anchor" href="#shixin的技术栈"></a> Shixin的技术栈</h2>
+<p>Linux嵌入式+边缘（神经网络，计算机视觉）计算［有前景］<br />
+STM32嵌入式开发 （STM32CubeMX，HAL库）<br />
+国产嵌入式芯片开发<br />
+C语言，C++，CMake，JSON，Lua<br />
+Git项目管理<br />
+自动控制原理，现代控制原理 算法各类学习<br />
+MATLAB/SIMULINK 电力电子技术，PFC，逆变器…及其仿真<br />
+PPL，SOGI，等电源控制技术<br />
+Linux系统，ROS机器人系统<br />
+机器学习，Python OpenCV，C++计算机视觉<br />
+GTK，QT界面开发<br />
+PCB电路板设计（KiCAD）<br />
 基础的机械设计（FreeCAD）</p>
 
                 
@@ -380,7 +389,7 @@ OpenCV，C++计算机视觉 GTK，QT界面开发 PCB电路板设计（KiCAD）
       Fluid.utils.createCssLink('/css/gitalk.css')
       Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.7.2/gitalk.min.js', function() {
         var options = Object.assign(
-          {"clientID":"e4c1b8fa1861450ec6ae","clientSecret":"63b56067410a57fbdc001c4d743a0d93a56cf2fa","repo":"https://github.com/Shixinzzw/comments.shixinzzw.github.io","owner":"Shixinzzw","admin":"Shixinzzw","language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {"clientID":"e4c1b8fa1861450ec6ae","clientSecret":"63b56067410a57fbdc001c4d743a0d93a56cf2fa","repo":"shixinzzw.github.io","owner":"Shixinzzw","admin":"Shixinzzw","language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
           {
             id: '17b719b0a46127aca879c501ea36cd4a'
           }
@@ -447,7 +456,6 @@ OpenCV，C++计算机视觉 GTK，QT界面开发 PCB电路板设计（KiCAD）
 
   
   
-
 
 
 
@@ -655,49 +663,6 @@ OpenCV，C++计算机视觉 GTK，QT界面开发 PCB电路板设计（KiCAD）
 
 
   <script>Fluid.plugins.imageCaption();</script>
-
-  
-      <script>
-        if (!window.MathJax) {
-          window.MathJax = {
-            tex    : {
-              inlineMath: { '[+]': [['$', '$']] }
-            },
-            loader : {
-              load: ['ui/lazy']
-            },
-            options: {
-              renderActions: {
-                insertedScript: [200, () => {
-                  document.querySelectorAll('mjx-container').forEach(node => {
-                    let target = node.parentNode;
-                    if (target.nodeName.toLowerCase() === 'li') {
-                      target.parentNode.classList.add('has-jax');
-                    }
-                  });
-                }, '', false]
-              }
-            }
-          };
-        } else {
-          MathJax.startup.document.state(0);
-          MathJax.texReset();
-          MathJax.typeset();
-          MathJax.typesetPromise();
-        }
-
-        Fluid.events.registerRefreshCallback(function() {
-          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
-            MathJax.startup.document.state(0);
-            MathJax.texReset();
-            MathJax.typeset();
-            MathJax.typesetPromise();
-          }
-        });
-      </script>
-    
-
-  <script  src="https://lib.baomitu.com/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
