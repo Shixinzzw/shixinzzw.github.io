@@ -16,21 +16,19 @@
   <meta name="author" content="Shixin">
   <meta name="keywords" content="">
   
-    <meta name="description" content="shixinzzw&#39;s blog">
-<meta property="og:type" content="article">
-<meta property="og:title" content="腾讯云loT开发（ESP-12F）">
-<meta property="og:url" content="https://shixinzzw.github.io/2023/02/26/%E8%85%BE%E8%AE%AF%E4%BA%91loT%E5%BC%80%E5%8F%91%EF%BC%88ESP-12F%EF%BC%89/index.html">
+    <meta property="og:type" content="article">
+<meta property="og:title" content="三相逆变器与无感FOC控制">
+<meta property="og:url" content="https://shixinzzw.github.io/2023/06/13/%E4%B8%89%E7%9B%B8%E9%80%86%E5%8F%98%E5%99%A8%E4%B8%8E%E6%97%A0%E6%84%9FFOC%E6%8E%A7%E5%88%B6/index.html">
 <meta property="og:site_name" content="Shixin&#39;s Blog">
-<meta property="og:description" content="shixinzzw&#39;s blog">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-02-26T07:43:21.000Z">
-<meta property="article:modified_time" content="2023-04-03T12:15:19.811Z">
+<meta property="article:published_time" content="2023-06-13T10:04:32.000Z">
+<meta property="article:modified_time" content="2023-06-13T10:04:32.557Z">
 <meta property="article:author" content="Shixin">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>腾讯云loT开发（ESP-12F） - Shixin&#39;s Blog</title>
+  <title>三相逆变器与无感FOC控制 - Shixin&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -81,7 +79,11 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
 
 
 <body>
@@ -196,7 +198,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="腾讯云loT开发（ESP-12F）"></span>
+            <span id="subtitle" data-typed-text="三相逆变器与无感FOC控制"></span>
           
         </div>
 
@@ -207,8 +209,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-02-26 15:43" pubdate>
-          2023年2月26日 下午
+        <time datetime="2023-06-13 18:04" pubdate>
+          2023年6月13日 晚上
         </time>
       </span>
     
@@ -268,12 +270,13 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">腾讯云loT开发（ESP-12F）</h1>
+            <h1 style="display: none">三相逆变器与无感FOC控制</h1>
             
             
               <div class="markdown-body">
                 
                 
+
                 
               </div>
             
@@ -290,8 +293,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>腾讯云loT开发（ESP-12F）</div>
-      <div>https://shixinzzw.github.io/2023/02/26/腾讯云loT开发（ESP-12F）/</div>
+      <div>三相逆变器与无感FOC控制</div>
+      <div>https://shixinzzw.github.io/2023/06/13/三相逆变器与无感FOC控制/</div>
     </div>
     <div class="license-meta">
       
@@ -303,7 +306,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年2月26日</div>
+          <div>2023年6月13日</div>
         </div>
       
       
@@ -335,9 +338,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/04/05/Shixin%E7%9A%84%E6%8A%80%E6%9C%AF%E6%A0%88/" title="Shixin的技术栈">
+                      <a href="/2023/06/13/%E5%8D%95%E7%9B%B8Boost%E5%9E%8BPFC%E5%8E%9F%E7%90%86%E5%8F%8A%E6%8E%A7%E5%88%B6/" title="单相Boost型PFC原理及控制">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Shixin的技术栈</span>
+                        <span class="hidden-mobile">单相Boost型PFC原理及控制</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -345,8 +348,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/02/25/%E4%B8%80%E4%BA%9B%E6%9C%89%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF/" title="一些有用的东西">
-                        <span class="hidden-mobile">一些有用的东西</span>
+                      <a href="/2023/06/13/%E5%85%B3%E4%BA%8E%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90%E7%9A%84%E8%BD%AF%E8%B5%B7%E5%8A%A8%E9%97%AE%E9%A2%98/" title="关于开关电源的软起动问题">
+                        <span class="hidden-mobile">关于开关电源的软起动问题</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -369,7 +372,7 @@
         var options = Object.assign(
           {"clientID":"e4c1b8fa1861450ec6ae","clientSecret":"63b56067410a57fbdc001c4d743a0d93a56cf2fa","repo":"https://github.com/Shixinzzw/comments.shixinzzw.github.io","owner":"Shixinzzw","admin":"Shixinzzw","language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
           {
-            id: '506f1c63f05362dad921130f79edeb37'
+            id: 'bbd715ad790762cf84c8bab9274ba831'
           }
         )
         var gitalk = new Gitalk(options);
