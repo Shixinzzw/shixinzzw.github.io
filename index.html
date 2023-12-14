@@ -60,7 +60,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"shixinzzw.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"shixinzzw.github.io","root":"/","version":"1.9.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -108,7 +108,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -120,7 +120,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -132,7 +132,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -144,7 +144,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -156,7 +156,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -228,12 +228,77 @@
     
     
     <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
+      <h2 class="index-header">
+        
+        <a href="/2023/07/18/%E5%8D%95%E7%9B%B8PWM%E6%95%B4%E6%B5%81%E5%99%A8/" target="_self">
+          单相PWM整流器
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/07/18/%E5%8D%95%E7%9B%B8PWM%E6%95%B4%E6%B5%81%E5%99%A8/" target="_self">
+        <div>
+          1 文献一 来源：基于 PR 的单相 PWM 整流器电流控制研究.戴鹏 杨艳 贾艳丽 伍小杰. 微计算机信息(嵌入式与 SOC)2009 年第 25 卷第 8-2 期  1.1 控制方式 PWM 整流器交流侧电流有多种控制方法,例如,电流滞环控制、线性 PI 控制、预测电流控制等。 将 PR 调节器应用于单相 PWM 整流器网侧正弦电流的控制,克服了单相交流系统中 PI 调节器的缺陷,减小了谐波
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-07-18 15:13" pubdate>
+              2023-07-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Control/" class="category-chain-item">Control</a>
+  
+  
+
+      </span>
+    
+  
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/PFC/">#PFC</a>
+            
+              <a href="/tags/PWM-Rectification/">#PWM Rectification</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
         
         <a href="/2023/06/13/%E4%B8%89%E7%9B%B8PFC%E7%94%B5%E8%B7%AF%E7%BB%93%E6%9E%84%E5%8F%8A%E6%8E%A7%E5%88%B6%E5%99%A8%E8%AE%BE%E8%AE%A1/" target="_self">
           三相PFC电路结构及控制器设计
         </a>
-      </h1>
+      </h2>
 
       
       <a class="index-excerpt index-excerpt__noimg" href="/2023/06/13/%E4%B8%89%E7%9B%B8PFC%E7%94%B5%E8%B7%AF%E7%BB%93%E6%9E%84%E5%8F%8A%E6%8E%A7%E5%88%B6%E5%99%A8%E8%AE%BE%E8%AE%A1/" target="_self">
@@ -261,12 +326,12 @@
     
     
     <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
+      <h2 class="index-header">
         
         <a href="/2023/06/13/LVGL-%E7%A7%BB%E6%A4%8D%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91/" target="_self">
           LVGL 移植与界面开发
         </a>
-      </h1>
+      </h2>
 
       
       <a class="index-excerpt index-excerpt__noimg" href="/2023/06/13/LVGL-%E7%A7%BB%E6%A4%8D%E4%B8%8E%E7%95%8C%E9%9D%A2%E5%BC%80%E5%8F%91/" target="_self">
@@ -294,12 +359,12 @@
     
     
     <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
+      <h2 class="index-header">
         
         <a href="/2023/06/13/GTK4-%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/" target="_self">
           GTK4 程序开发
         </a>
-      </h1>
+      </h2>
 
       
       <a class="index-excerpt index-excerpt__noimg" href="/2023/06/13/GTK4-%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/" target="_self">
@@ -327,12 +392,12 @@
     
     
     <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
+      <h2 class="index-header">
         
         <a href="/2023/06/13/%E5%8D%95%E7%9B%B8%E5%9B%BE%E8%85%BE%E6%9F%B1PFC%E7%9A%84SOGI%E6%8E%A7%E5%88%B6/" target="_self">
           单相图腾柱PFC的SOGI控制
         </a>
-      </h1>
+      </h2>
 
       
       <a class="index-excerpt index-excerpt__noimg" href="/2023/06/13/%E5%8D%95%E7%9B%B8%E5%9B%BE%E8%85%BE%E6%9F%B1PFC%E7%9A%84SOGI%E6%8E%A7%E5%88%B6/" target="_self">
@@ -392,12 +457,12 @@
     
     
     <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
+      <h2 class="index-header">
         
         <a href="/2023/06/13/%E5%8D%95%E7%9B%B8Boost%E5%9E%8BPFC%E5%8E%9F%E7%90%86%E5%8F%8A%E6%8E%A7%E5%88%B6/" target="_self">
           单相Boost型PFC原理及控制
         </a>
-      </h1>
+      </h2>
 
       
       <a class="index-excerpt index-excerpt__noimg" href="/2023/06/13/%E5%8D%95%E7%9B%B8Boost%E5%9E%8BPFC%E5%8E%9F%E7%90%86%E5%8F%8A%E6%8E%A7%E5%88%B6/" target="_self">
@@ -457,12 +522,12 @@
     
     
     <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
+      <h2 class="index-header">
         
         <a href="/2023/06/13/%E4%B8%89%E7%9B%B8%E9%80%86%E5%8F%98%E5%99%A8%E4%B8%8E%E6%97%A0%E6%84%9FFOC%E6%8E%A7%E5%88%B6/" target="_self">
           三相逆变器与无感FOC控制
         </a>
-      </h1>
+      </h2>
 
       
       <a class="index-excerpt index-excerpt__noimg" href="/2023/06/13/%E4%B8%89%E7%9B%B8%E9%80%86%E5%8F%98%E5%99%A8%E4%B8%8E%E6%97%A0%E6%84%9FFOC%E6%8E%A7%E5%88%B6/" target="_self">
@@ -490,12 +555,12 @@
     
     
     <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
+      <h2 class="index-header">
         
         <a href="/2023/06/13/%E5%85%B3%E4%BA%8E%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90%E7%9A%84%E8%BD%AF%E8%B5%B7%E5%8A%A8%E9%97%AE%E9%A2%98/" target="_self">
           关于开关电源的软起动问题
         </a>
-      </h1>
+      </h2>
 
       
       <a class="index-excerpt index-excerpt__noimg" href="/2023/06/13/%E5%85%B3%E4%BA%8E%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90%E7%9A%84%E8%BD%AF%E8%B5%B7%E5%8A%A8%E9%97%AE%E9%A2%98/" target="_self">
@@ -523,12 +588,12 @@
     
     
     <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
+      <h2 class="index-header">
         
         <a href="/2023/04/22/%E4%BD%BF%E7%94%A8Ubuntu-Server-20-04%E9%85%8D%E7%BD%AE%E6%A0%91%E8%8E%93%E6%B4%BE3B-ROS1-%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E6%80%BB%E7%BB%93/" target="_self">
           使用Ubuntu Server 20.04配置树莓派3B ROS1 系统环境总结
         </a>
-      </h1>
+      </h2>
 
       
       <a class="index-excerpt index-excerpt__noimg" href="/2023/04/22/%E4%BD%BF%E7%94%A8Ubuntu-Server-20-04%E9%85%8D%E7%BD%AE%E6%A0%91%E8%8E%93%E6%B4%BE3B-ROS1-%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E6%80%BB%E7%BB%93/" target="_self">
@@ -556,12 +621,12 @@
     
     
     <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
+      <h2 class="index-header">
         
         <a href="/2023/04/05/Shixin%E7%9A%84%E6%8A%80%E6%9C%AF%E6%A0%88/" target="_self">
           Shixin的技术栈
         </a>
-      </h1>
+      </h2>
 
       
       <a class="index-excerpt index-excerpt__noimg" href="/2023/04/05/Shixin%E7%9A%84%E6%8A%80%E6%9C%AF%E6%A0%88/" target="_self">
@@ -576,39 +641,6 @@
             <i class="iconfont icon-date"></i>
             <time datetime="2023-04-05 23:30" pubdate>
               2023-04-05
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2023/02/26/%E8%85%BE%E8%AE%AF%E4%BA%91loT%E5%BC%80%E5%8F%91%EF%BC%88ESP32%EF%BC%89/" target="_self">
-          腾讯云loT开发（ESP32）
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/02/26/%E8%85%BE%E8%AE%AF%E4%BA%91loT%E5%BC%80%E5%8F%91%EF%BC%88ESP32%EF%BC%89/" target="_self">
-        <div>
-          
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-02-26 15:43" pubdate>
-              2023-02-26
             </time>
           </div>
         
